@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Execl中超链接图片地址使用宏自动获取图片 | 张淋建 | 个人博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="要求在打开Execl的时候使用宏自动加载图片超链接的图片。 使用Office创建一个xlsx的文件，打开xlsx文件使用ALT+F11快捷键进入设置宏的界面。当在点击保存时会提示你是否保存为xlsm文件，xlsm文件是代表该文件是宏文件。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Execl中超链接图片地址使用宏自动获取图片">
+<meta property="og:url" content="http://zlj309.top/2022/09/03/Execl%E4%B8%AD%E8%B6%85%E9%93%BE%E6%8E%A5%E5%9B%BE%E7%89%87%E5%9C%B0%E5%9D%80%E4%BD%BF%E7%94%A8%E5%AE%8F%E8%87%AA%E5%8A%A8%E8%8E%B7%E5%8F%96%E5%9B%BE%E7%89%87/index.html">
+<meta property="og:site_name" content="张淋建 | 个人博客">
+<meta property="og:description" content="要求在打开Execl的时候使用宏自动加载图片超链接的图片。 使用Office创建一个xlsx的文件，打开xlsx文件使用ALT+F11快捷键进入设置宏的界面。当在点击保存时会提示你是否保存为xlsm文件，xlsm文件是代表该文件是宏文件。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://zlj309.top/2022/09/03/Execl%E4%B8%AD%E8%B6%85%E9%93%BE%E6%8E%A5%E5%9B%BE%E7%89%87%E5%9C%B0%E5%9D%80%E4%BD%BF%E7%94%A8%E5%AE%8F%E8%87%AA%E5%8A%A8%E8%8E%B7%E5%8F%96%E5%9B%BE%E7%89%87/%E5%8A%A0%E8%BD%BD%E8%B6%85%E9%93%BE%E6%8E%A5%E5%AE%8F1.jpg">
+<meta property="og:image" content="http://zlj309.top/2022/09/03/Execl%E4%B8%AD%E8%B6%85%E9%93%BE%E6%8E%A5%E5%9B%BE%E7%89%87%E5%9C%B0%E5%9D%80%E4%BD%BF%E7%94%A8%E5%AE%8F%E8%87%AA%E5%8A%A8%E8%8E%B7%E5%8F%96%E5%9B%BE%E7%89%87/%E5%8A%A0%E8%BD%BD%E8%B6%85%E9%93%BE%E6%8E%A5%E5%AE%8F2.jpg">
+<meta property="og:image" content="http://zlj309.top/2022/09/03/Execl%E4%B8%AD%E8%B6%85%E9%93%BE%E6%8E%A5%E5%9B%BE%E7%89%87%E5%9C%B0%E5%9D%80%E4%BD%BF%E7%94%A8%E5%AE%8F%E8%87%AA%E5%8A%A8%E8%8E%B7%E5%8F%96%E5%9B%BE%E7%89%87/%E5%8A%A0%E8%BD%BD%E8%B6%85%E9%93%BE%E6%8E%A5%E5%AE%8F3.jpg">
+<meta property="og:image" content="http://zlj309.top/2022/09/03/Execl%E4%B8%AD%E8%B6%85%E9%93%BE%E6%8E%A5%E5%9B%BE%E7%89%87%E5%9C%B0%E5%9D%80%E4%BD%BF%E7%94%A8%E5%AE%8F%E8%87%AA%E5%8A%A8%E8%8E%B7%E5%8F%96%E5%9B%BE%E7%89%87/%E5%8A%A0%E8%BD%BD%E8%B6%85%E9%93%BE%E6%8E%A5%E5%AE%8F4.jpg">
+<meta property="article:published_time" content="2022-09-03T12:42:09.000Z">
+<meta property="article:modified_time" content="2022-09-03T12:47:17.477Z">
+<meta property="article:author" content="Zhanglinjian">
+<meta property="article:tag" content="Execl">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://zlj309.top/2022/09/03/Execl%E4%B8%AD%E8%B6%85%E9%93%BE%E6%8E%A5%E5%9B%BE%E7%89%87%E5%9C%B0%E5%9D%80%E4%BD%BF%E7%94%A8%E5%AE%8F%E8%87%AA%E5%8A%A8%E8%8E%B7%E5%8F%96%E5%9B%BE%E7%89%87/%E5%8A%A0%E8%BD%BD%E8%B6%85%E9%93%BE%E6%8E%A5%E5%AE%8F1.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="张淋建 | 个人博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<link rel="stylesheet" href="/plugin/bganimation/bg.css">
+
+  
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" rel="stylesheet" type="text/css">
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+	<script type="text/javascript" src="/js/clicklove.js"></script>
+  <div id="container">
+    <div id="wrap">
+      <div class="outer">
+        <div class="widget-wrap mobile-header">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="https://thirdqq.qlogo.cn/g?b=oidb&amp;k=cZ65lzFJBTKTmgQSZLaMhA&amp;s=640&amp;t=1603217724">
+    <h2 class="author">Zhanglinjian</h2>
+    <h3 class="description">Java后端</h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>7</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>5</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>8</strong><br>标签</div></a>
+    </div>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+        <section id="main"><article id="post-Execl中超链接图片地址使用宏自动获取图片" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/09/03/Execl%E4%B8%AD%E8%B6%85%E9%93%BE%E6%8E%A5%E5%9B%BE%E7%89%87%E5%9C%B0%E5%9D%80%E4%BD%BF%E7%94%A8%E5%AE%8F%E8%87%AA%E5%8A%A8%E8%8E%B7%E5%8F%96%E5%9B%BE%E7%89%87/" class="article-date">
+  <time class="post-time" datetime="2022-09-03T12:42:09.000Z" itemprop="datePublished">
+    <span class="post-month">9月</span><br/>
+    <span class="post-day">03</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Execl中超链接图片地址使用宏自动获取图片
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Execl/">Execl</a>
+  </div>
+
+          
+              
+  &nbsp; | &nbsp;
+  <div class="view-box">
+    <span id="/2022/09/03/Execl%E4%B8%AD%E8%B6%85%E9%93%BE%E6%8E%A5%E5%9B%BE%E7%89%87%E5%9C%B0%E5%9D%80%E4%BD%BF%E7%94%A8%E5%AE%8F%E8%87%AA%E5%8A%A8%E8%8E%B7%E5%8F%96%E5%9B%BE%E7%89%87/" class="leancloud_visitors" data-flag-title="Execl中超链接图片地址使用宏自动获取图片">
+      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
+    </span>
+  </div>
+
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>要求在打开Execl的时候使用宏自动加载图片超链接的图片。</strong></p>
+<p>使用Office创建一个xlsx的文件，打开xlsx文件使用ALT+F11快捷键进入设置宏的界面。当在点击保存时会提示你是否保存为xlsm文件，xlsm文件是代表该文件是宏文件。</p>
+<a id="more"></a>
+<p><img src="/2022/09/03/Execl%E4%B8%AD%E8%B6%85%E9%93%BE%E6%8E%A5%E5%9B%BE%E7%89%87%E5%9C%B0%E5%9D%80%E4%BD%BF%E7%94%A8%E5%AE%8F%E8%87%AA%E5%8A%A8%E8%8E%B7%E5%8F%96%E5%9B%BE%E7%89%87/%E5%8A%A0%E8%BD%BD%E8%B6%85%E9%93%BE%E6%8E%A5%E5%AE%8F1.jpg" alt></p>
+<p>选择加载Execl时触发的事件Workbook_Open()</p>
+<p><img src="/2022/09/03/Execl%E4%B8%AD%E8%B6%85%E9%93%BE%E6%8E%A5%E5%9B%BE%E7%89%87%E5%9C%B0%E5%9D%80%E4%BD%BF%E7%94%A8%E5%AE%8F%E8%87%AA%E5%8A%A8%E8%8E%B7%E5%8F%96%E5%9B%BE%E7%89%87/%E5%8A%A0%E8%BD%BD%E8%B6%85%E9%93%BE%E6%8E%A5%E5%AE%8F2.jpg" alt></p>
+<p><strong>相关代码</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">Private Sub Workbook_Open()</span><br><span class="line">With Target</span><br><span class="line">    Dim lngLastRow As Long</span><br><span class="line">    Dim i As Long</span><br><span class="line">    Dim j As Long</span><br><span class="line">    Dim objectCell As Range</span><br><span class="line">    &#39;获取工作表中已使用区域最后一行的行号</span><br><span class="line">    lngLastRow &#x3D; Range(&quot;L65536&quot;).End(xlUp).Row</span><br><span class="line">    &#39;遍历行 i 是从第几行开始执行</span><br><span class="line">    For i &#x3D; 3 To lngLastRow</span><br><span class="line">        &#39;判断每行中第12列的单元格是否为空</span><br><span class="line">        If IsEmpty(Cells(i, 12)) &#x3D; False Then</span><br><span class="line">            If Left(Cells(i, 12), 7) &#x3D; &quot;http:&#x2F;&#x2F;&quot; Then &#39;如果单元格内容为网址</span><br><span class="line">                &#39;添加网络图片，并设置为图片大小位置随单元格变化而变化</span><br><span class="line">                Set objectCell &#x3D; Cells(i, 12)</span><br><span class="line">                ActiveSheet.Shapes.AddPicture(Cells(i, 12), True, True, objectCell.Left + 3, objectCell.Top + 3, -1, -1).Placement &#x3D; xlMoveAndSize</span><br><span class="line">                &#39;图片自适应单元格大小</span><br><span class="line">                Cells(i, 12).Clear</span><br><span class="line">                With Cells(i, 12)</span><br><span class="line">                    PicL &#x3D; .Left + .Width * 0.05</span><br><span class="line">                    PicT &#x3D; .Top + .Height * 0.05</span><br><span class="line">                    picW &#x3D; .Width * 0.9</span><br><span class="line">                    picH &#x3D; .Height * 0.9</span><br><span class="line">                End With</span><br><span class="line">                &#39;获取图片数量</span><br><span class="line">                j &#x3D; 0</span><br><span class="line">                For Each p In ActiveSheet.Shapes</span><br><span class="line">                    If p.Type &#x3D; 11 Then</span><br><span class="line">                        j &#x3D; j + 1</span><br><span class="line">                    ElseIf p.Type &#x3D; 13 Then</span><br><span class="line">                        j &#x3D; j + 1</span><br><span class="line">                    End If</span><br><span class="line">                Next</span><br><span class="line">                Set shp &#x3D; ActiveSheet.Shapes(j)</span><br><span class="line">                    rh &#x3D; picH &#x2F; shp.Height</span><br><span class="line">                    rw &#x3D; picW &#x2F; shp.Width</span><br><span class="line">                    r &#x3D; IIf(rw &gt; rh, rh, rw)</span><br><span class="line">                    shp.Left &#x3D; PicL</span><br><span class="line">                    shp.Top &#x3D; PicT</span><br><span class="line">                    shp.ScaleWidth r, msoFalse, msoScaleFromTopLeft</span><br><span class="line">            End If</span><br><span class="line">        End If</span><br><span class="line">    Next i</span><br><span class="line">End With</span><br><span class="line">End Sub</span><br></pre></td></tr></table></figure>
+<p>测试一下效果</p>
+<p><img src="/2022/09/03/Execl%E4%B8%AD%E8%B6%85%E9%93%BE%E6%8E%A5%E5%9B%BE%E7%89%87%E5%9C%B0%E5%9D%80%E4%BD%BF%E7%94%A8%E5%AE%8F%E8%87%AA%E5%8A%A8%E8%8E%B7%E5%8F%96%E5%9B%BE%E7%89%87/%E5%8A%A0%E8%BD%BD%E8%B6%85%E9%93%BE%E6%8E%A5%E5%AE%8F3.jpg" alt></p>
+<p>然后保存一下文件，重新在打开后</p>
+<p><img src="/2022/09/03/Execl%E4%B8%AD%E8%B6%85%E9%93%BE%E6%8E%A5%E5%9B%BE%E7%89%87%E5%9C%B0%E5%9D%80%E4%BD%BF%E7%94%A8%E5%AE%8F%E8%87%AA%E5%8A%A8%E8%8E%B7%E5%8F%96%E5%9B%BE%E7%89%87/%E5%8A%A0%E8%BD%BD%E8%B6%85%E9%93%BE%E6%8E%A5%E5%AE%8F4.jpg" alt></p>
+<p>测试完成，如果你是其他需求可以修改触发事件和宏代码。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://zlj309.top/2022/09/03/Execl%E4%B8%AD%E8%B6%85%E9%93%BE%E6%8E%A5%E5%9B%BE%E7%89%87%E5%9C%B0%E5%9D%80%E4%BD%BF%E7%94%A8%E5%AE%8F%E8%87%AA%E5%8A%A8%E8%8E%B7%E5%8F%96%E5%9B%BE%E7%89%87/" data-id="cl7lwamqo000024tx1byc4k88" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Execl/" rel="tag">Execl</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/09/03/Java-%E4%BD%8D%E8%BF%90%E7%AE%97%E7%AC%A6-%E3%80%81-%E3%80%81-%E3%80%81-%E3%80%81-%E3%80%81/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          Java 位运算符&amp;、|、^、~、&lt;&lt;、&gt;&gt;
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/09/03/docker%E5%AE%89%E8%A3%85jenkins%E6%90%AD%E9%85%8Dgithub%E5%AE%9E%E7%8E%B0%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">docker安装jenkins搭配github实现自动部署</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <h1 class="blog-title">张淋建 | 个人博客</h1>
+    <h2 class="blog-subtitle">学无止境</h2>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="https://thirdqq.qlogo.cn/g?b=oidb&amp;k=cZ65lzFJBTKTmgQSZLaMhA&amp;s=640&amp;t=1603217724">
+    <h2 class="author">Zhanglinjian</h2>
+    <h3 class="description">Java后端</h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>7</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>5</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>8</strong><br>标签</div></a>
+    </div>
+
+
+
+    <div class="social-link">
+      
+        <a class="hvr-bounce-in" href="http://github.com/zhanglinjiang309" target="_blank" title="Github">
+          Github
+        </a>
+      
+    </div>
+
+    <div class="friend-link">
+      <h2>联系我</h2>
+      
+        <a class="hvr-bounce-in" href="http://wpa.qq.com/msgrd?v=3&amp;uin=859476472&amp;site=qq&amp;menu=yes" target="_blank" title="QQ">
+          QQ
+        </a>
+      
+    </div>
+  </div>
+</div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy;2021 - 2022 Zhanglinjian<br>
+      由<a href="http://hexo.io/" target="_blank">Hexo</a>强力驱动 | 
+      主题-<a target="_blank" rel="noopener" href="https://github.com/ShanaMaid/hexo-theme-shana">Shana</a>
+
+            <br>
+            <span id="sitetime"></span>
+            <br>
+            
+        <!-- 不蒜子统计 -->
+        <span id="busuanzi_container_site_pv">
+                本站总访问量<span id="busuanzi_value_site_pv"></span>次        </span>
+        <span id="busuanzi_container_site_uv" style='display:none'>
+                |本站访客数<span id="busuanzi_value_site_uv"></span>人        </span>
+        <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+		
+    </div>
+    
+  </div>
+</footer>
+
+<script language=javascript>
+    function siteTime() {
+        window.setTimeout("siteTime()", 1000);
+        var seconds = 1000;
+        var minutes = seconds * 60;
+        var hours = minutes * 60;
+        var days = hours * 24;
+        var years = days * 365;
+        var today = new Date();
+        var todayYear = today.getFullYear();
+        var todayMonth = today.getMonth() + 1;
+        var todayDate = today.getDate();
+        var todayHour = today.getHours();
+        var todayMinute = today.getMinutes();
+        var todaySecond = today.getSeconds();
+        /* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+        year - 作为date对象的年份，为4位年份值
+        month - 0-11之间的整数，做为date对象的月份
+        day - 1-31之间的整数，做为date对象的天数
+        hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+        minutes - 0-59之间的整数，做为date对象的分钟数
+        seconds - 0-59之间的整数，做为date对象的秒数
+        microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+        var t1 = Date.UTC(2020, 10, 11, 00, 00, 00); //北京时间2018-2-13 00:00:00
+        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+        var diff = t2 - t1;
+        var diffYears = Math.floor(diff / years);
+        var diffDays = Math.floor((diff / days) - diffYears * 365);
+        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes);
+        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds);
+        document.getElementById("sitetime").innerHTML = "本站已运行 " +diffYears+" 年 "+diffDays + " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+    }/*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
+    siteTime();
+</script>
+    </div>
+    
+
+<script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="//apps.bdimg.com/libs/wow/0.1.6/wow.min.js"></script>
+<script>
+new WOW().init();
+</script>   
+
+
+  
+<link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
+
+  
+<script src="/plugin/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+  
+<link rel="stylesheet" href="/plugin/galmenu/GalMenu.css">
+
+  
+<script src="/plugin/galmenu/GalMenu.js"></script>
+
+  <div class="GalMenu GalDropDown">
+      <div class="circle" id="gal">
+        <div class="ring">
+          
+            <a href="/" title="" class="menuItem">首页</a>
+          
+            <a href="/tags" title="" class="menuItem">标签</a>
+          
+            <a href="/categories" title="" class="menuItem">分类</a>
+          
+            <a href="/archives" title="" class="menuItem">归档</a>
+          
+            <a href="/xxxxxxxxx" title="" class="menuItem">xxx</a>
+          
+            <a href="/xxxxxxx" title="" class="menuItem">xxxx</a>
+          
+        </div>
+        
+          <audio id="audio" src="#"></audio>
+        
+      </div> 
+</div>
+<div id="overlay" style="opacity: 1; cursor: pointer;"></div>
+  <script type="text/javascript">var items = document.querySelectorAll('.menuItem');
+    for (var i = 0,
+    l = items.length; i < l; i++) {
+      items[i].style.left = (50 - 35 * Math.cos( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%";
+      items[i].style.top = (50 + 35 * Math.sin( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%"
+    }</script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('body').GalMenu({
+      'menu': 'GalDropDown'
+    })
+  });
+</script>
+
+  <section class="hidden-xs"> 
+  <ul class="cb-slideshow"> 
+    <li><span>苟利</span></li> 
+    <li><span>国家</span></li> 
+    <li><span>生死以</span></li> 
+    <li><span>岂能</span></li> 
+    <li><span>祸福</span></li> 
+    <li><span>趋避之</span></li> 
+  </ul>
+</section>
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("3BofTxt7eh7t7IFhEptSRiW7-gzGzoHsz", "6r3fg4uUNzOTwCmMezUce8wA");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.article-title').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+
+
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":250,"height":500},"mobile":{"show":false},"log":false});</script></body>
+</html>

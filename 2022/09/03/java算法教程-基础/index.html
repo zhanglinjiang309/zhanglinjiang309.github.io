@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>java算法教程(基础) | 张淋建 | 个人博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1.题目：两数之和 ​	给定一个整数数组 nums 和一个整数目标值 target ，请你在数组中找出 和目标值target 的那 两个 整数，并返回他们的数组下标。 ​	你可以假设每种输入只会对应一个答案。但是，数组中同一个元素在答案里不能重复出现。 ​	你可以按任意顺序返回答案。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java算法教程(基础)">
+<meta property="og:url" content="http://zlj309.top/2022/09/03/java%E7%AE%97%E6%B3%95%E6%95%99%E7%A8%8B-%E5%9F%BA%E7%A1%80/index.html">
+<meta property="og:site_name" content="张淋建 | 个人博客">
+<meta property="og:description" content="1.题目：两数之和 ​	给定一个整数数组 nums 和一个整数目标值 target ，请你在数组中找出 和目标值target 的那 两个 整数，并返回他们的数组下标。 ​	你可以假设每种输入只会对应一个答案。但是，数组中同一个元素在答案里不能重复出现。 ​	你可以按任意顺序返回答案。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://zlj309.top/2022/09/03/java%E7%AE%97%E6%B3%95%E6%95%99%E7%A8%8B-%E5%9F%BA%E7%A1%80/1.jpg">
+<meta property="article:published_time" content="2022-09-03T13:03:12.000Z">
+<meta property="article:modified_time" content="2022-09-03T13:33:07.455Z">
+<meta property="article:author" content="Zhanglinjian">
+<meta property="article:tag" content="java">
+<meta property="article:tag" content="算法">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://zlj309.top/2022/09/03/java%E7%AE%97%E6%B3%95%E6%95%99%E7%A8%8B-%E5%9F%BA%E7%A1%80/1.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="张淋建 | 个人博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<link rel="stylesheet" href="/plugin/bganimation/bg.css">
+
+  
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" rel="stylesheet" type="text/css">
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+	<script type="text/javascript" src="/js/clicklove.js"></script>
+  <div id="container">
+    <div id="wrap">
+      <div class="outer">
+        <div class="widget-wrap mobile-header">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="https://thirdqq.qlogo.cn/g?b=oidb&amp;k=cZ65lzFJBTKTmgQSZLaMhA&amp;s=640&amp;t=1603217724">
+    <h2 class="author">Zhanglinjian</h2>
+    <h3 class="description">Java后端</h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>7</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>5</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>8</strong><br>标签</div></a>
+    </div>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+        <section id="main"><article id="post-java算法教程-基础" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/09/03/java%E7%AE%97%E6%B3%95%E6%95%99%E7%A8%8B-%E5%9F%BA%E7%A1%80/" class="article-date">
+  <time class="post-time" datetime="2022-09-03T13:03:12.000Z" itemprop="datePublished">
+    <span class="post-month">9月</span><br/>
+    <span class="post-day">03</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      java算法教程(基础)
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
+  </div>
+
+          
+              
+  &nbsp; | &nbsp;
+  <div class="view-box">
+    <span id="/2022/09/03/java%E7%AE%97%E6%B3%95%E6%95%99%E7%A8%8B-%E5%9F%BA%E7%A1%80/" class="leancloud_visitors" data-flag-title="java算法教程(基础)">
+      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
+    </span>
+  </div>
+
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1题目两数之和"><a class="markdownIt-Anchor" href="#1题目两数之和"></a> <strong>1.题目：两数之和</strong></h3>
+<p>​	给定一个整数数组 <strong>nums</strong> 和一个整数目标值 <strong>target</strong> ，请你在数组中找出 <strong>和目标值target</strong> 的那 <strong>两个</strong> 整数，并返回他们的数组下标。</p>
+<p>​	你可以假设每种输入只会对应一个答案。但是，数组中同一个元素在答案里不能重复出现。</p>
+<p>​	你可以按任意顺序返回答案。</p>
+<a id="more"></a>	
+<p><strong>示例1：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：nums &#x3D; [2,7,11,15],target &#x3D; 9</span><br><span class="line">输出：[0,1]</span><br><span class="line">解释：因为 nums[0] + nums[1] &#x3D; 9，返回[0,1]。</span><br></pre></td></tr></table></figure>
+<p><strong>实例2：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：[3,2,4]，target &#x3D; 6</span><br><span class="line">输出：[1,2]</span><br></pre></td></tr></table></figure>
+<p><strong>示例3</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：nums &#x3D; [3,3]，target &#x3D; 6</span><br><span class="line">输入：[0,1]</span><br></pre></td></tr></table></figure>
+<p><strong>提升：</strong></p>
+<ul>
+<li>2 &lt;= nums.length &lt;= 10^4</li>
+<li>-10^9 &lt;= nums[i] &lt;= 10^9</li>
+<li>-10^9 &lt;= target &lt;= 10^9</li>
+<li><strong>只会存在一个有效答案</strong></li>
+</ul>
+<p>进阶：你可以想出一个时间复杂度小于O(n^2)的算法吗？</p>
+<p><strong>解法：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">public int[] getAlgorithm1(int[] nums,int target)&#123;</span><br><span class="line">    Map&lt;Integer, Integer&gt; map &#x3D; new HashMap&lt;&gt;(); &#x2F;&#x2F;存储匹配的值，K值存下标值 V值存下标</span><br><span class="line">    for(int i&#x3D;0;i&lt;nums.length;i++)&#123;</span><br><span class="line">        if(map.containsKey(target - nums[i]))&#123; </span><br><span class="line">            int[] arr &#x3D; &#123;i,map.get(target - nums[i])&#125;;</span><br><span class="line">            return arr;</span><br><span class="line">        &#125;</span><br><span class="line">        map.put(nums[i],i);</span><br><span class="line">    &#125;</span><br><span class="line">    return null;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2题目两数相加"><a class="markdownIt-Anchor" href="#2题目两数相加"></a> 2.题目：两数相加</h3>
+<p>​	给你两个 <strong>非空</strong> 的链表，表示两个非负的整数。它们每位数字都是按照 <strong>逆序</strong> 的方式存储的，并且每个节点只能存储 一位 数字。</p>
+<p>​	请你将两个数相加，并以相同形式返回一个表示和的链表。</p>
+<p>​	你可以假设除了数字0之外，这两个数都不会以0开头。</p>
+<p><strong>示例1：</strong></p>
+<p><img src="/2022/09/03/java%E7%AE%97%E6%B3%95%E6%95%99%E7%A8%8B-%E5%9F%BA%E7%A1%80/1.jpg" alt></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：l1 &#x3D; [2,4,3], l2 &#x3D; [5,6,4]</span><br><span class="line">输出：[7，0，8]</span><br><span class="line">解释：342 + 465 &#x3D; 807</span><br></pre></td></tr></table></figure>
+<p><strong>示例2：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：l1 &#x3D; [0], l2 &#x3D; [0]</span><br><span class="line">输出：[0]</span><br></pre></td></tr></table></figure>
+<p><strong>示例3：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：l1 &#x3D; [9,9,9,9,9,9,9], l2 &#x3D; [9,9,9,9]</span><br><span class="line">输出：[8,9,9,9,0,0,0,1]</span><br></pre></td></tr></table></figure>
+<p><strong>提示</strong>：</p>
+<ul>
+<li>每个链表中的节点数在范围 <strong>[1, 100]</strong> 内</li>
+<li><strong>0 &lt;= Node.val &lt;= 9</strong></li>
+<li>题目数据保证列表表示的数组不含前导零</li>
+</ul>
+<p><strong>解法1(这是自己写的代码上不是很简洁)：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">public static List&lt;Integer&gt; getAlgorithm2(List&lt;Integer&gt; list1,List&lt;Integer&gt; list2)&#123;</span><br><span class="line">        int length &#x3D; list1.size() &gt;&#x3D; list2.size() ? list1.size() : list2.size(); &#x2F;&#x2F;获取长度最长的链表的长度</span><br><span class="line">        Integer number &#x3D; 0; &#x2F;&#x2F; 表示进位</span><br><span class="line">        List&lt;Integer&gt; arr &#x3D; new ArrayList&lt;&gt;();</span><br><span class="line">        for(int i&#x3D;0; i &lt; length; i++)&#123;</span><br><span class="line">            int sum &#x3D; 0;</span><br><span class="line">            &#x2F;&#x2F; 如果其中一个链表到头了，只返回另一个链表的值</span><br><span class="line">            if(i &gt;&#x3D; list1.size())&#123;</span><br><span class="line">                sum &#x3D; list2.get(i);</span><br><span class="line">            &#125;else if(i &gt;&#x3D; list2.size())&#123;</span><br><span class="line">                sum &#x3D; list1.get(i);</span><br><span class="line">            &#125;else &#123;</span><br><span class="line">                sum &#x3D; list1.get(i) + list2.get(i);</span><br><span class="line">            &#125;</span><br><span class="line">            &#x2F;&#x2F; 判断是否大于10，如果有进位number等于1</span><br><span class="line">            sum +&#x3D; number; &#x2F;&#x2F; 加上进位值，没有进位等于0，有进位等于1</span><br><span class="line">            if(sum &gt; 10)&#123;</span><br><span class="line">                arr.add((sum%10));</span><br><span class="line">                number &#x3D; 1;</span><br><span class="line">            &#125;else if(sum &#x3D;&#x3D; 10)&#123;</span><br><span class="line">                arr.add(0);</span><br><span class="line">                number &#x3D; 1;</span><br><span class="line">            &#125;else &#123;</span><br><span class="line">                arr.add(sum);</span><br><span class="line">                number &#x3D; 0;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        &#x2F;&#x2F;如果最后一个有进位的话，增加一个节点</span><br><span class="line">        if(number &#x3D;&#x3D; 1)&#123;</span><br><span class="line">            arr.add(number);</span><br><span class="line">        &#125;</span><br><span class="line">        return arr;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="3题目两数相加"><a class="markdownIt-Anchor" href="#3题目两数相加"></a> 3.题目：两数相加</h3>
+<p>​	给定一个字符串 <strong>s</strong> ，请你找出其中不含有重复字符的 <strong>最长子串</strong> 的长度。</p>
+<p><strong>示例1：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：s &#x3D; &quot;abcabcbb&quot;</span><br><span class="line">输出：3</span><br><span class="line">解释：因为无重复字符的最长子串是&quot;abc&quot;，所以其长度为 3。</span><br></pre></td></tr></table></figure>
+<p><strong>示例2：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：s &#x3D; &quot;bbbbb&quot;</span><br><span class="line">输出：1</span><br><span class="line">解释：因为无重复字符的最长子串是 &quot;b&quot;，所以其长度为 1。</span><br></pre></td></tr></table></figure>
+<p><strong>示例3：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：s &#x3D; &quot;pwwkew&quot;</span><br><span class="line">输出：3</span><br><span class="line">解释：因为无重复字符的最长子串是 &quot;wke&quot;,所以其长度为 3。请注意，你的答案必须是 &quot;子串&quot; 的长度，&quot;pwke&quot; 是一个子序列，不是子串。</span><br></pre></td></tr></table></figure>
+<p><strong>示例4：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：s &#x3D; &quot;&quot;</span><br><span class="line">输出：0</span><br></pre></td></tr></table></figure>
+<p><strong>提示：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* 0  &lt;&#x3D;  s.length &lt;&#x3D; s i  * 10 ^4</span><br></pre></td></tr></table></figure>
+<ul>
+<li>s 由英文字母、数组、符号和空格组成</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://zlj309.top/2022/09/03/java%E7%AE%97%E6%B3%95%E6%95%99%E7%A8%8B-%E5%9F%BA%E7%A1%80/" data-id="cl7lxgi2o0001pgtx4eh0cxvk" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/" rel="tag">java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/09/03/%E5%85%B3%E4%BA%8EExecl%E4%BD%BF%E7%94%A8%E5%AE%8F%E5%AF%BC%E5%85%A5%E5%9B%BE%E7%89%87%E5%B9%B6%E4%B8%94%E8%87%AA%E9%80%82%E5%BA%94%E5%8D%95%E5%85%83%E6%A0%BC/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          关于Execl使用宏导入图片并且自适应单元格
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/09/03/Java%E4%B8%ADString%E6%93%8D%E4%BD%9C/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">Java中String操作</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <h1 class="blog-title">张淋建 | 个人博客</h1>
+    <h2 class="blog-subtitle">学无止境</h2>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="https://thirdqq.qlogo.cn/g?b=oidb&amp;k=cZ65lzFJBTKTmgQSZLaMhA&amp;s=640&amp;t=1603217724">
+    <h2 class="author">Zhanglinjian</h2>
+    <h3 class="description">Java后端</h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>7</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>5</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>8</strong><br>标签</div></a>
+    </div>
+
+
+
+    <div class="social-link">
+      
+        <a class="hvr-bounce-in" href="http://github.com/zhanglinjiang309" target="_blank" title="Github">
+          Github
+        </a>
+      
+    </div>
+
+    <div class="friend-link">
+      <h2>联系我</h2>
+      
+        <a class="hvr-bounce-in" href="http://wpa.qq.com/msgrd?v=3&amp;uin=859476472&amp;site=qq&amp;menu=yes" target="_blank" title="QQ">
+          QQ
+        </a>
+      
+    </div>
+  </div>
+</div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy;2021 - 2022 Zhanglinjian<br>
+      由<a href="http://hexo.io/" target="_blank">Hexo</a>强力驱动 | 
+      主题-<a target="_blank" rel="noopener" href="https://github.com/ShanaMaid/hexo-theme-shana">Shana</a>
+
+            <br>
+            <span id="sitetime"></span>
+            <br>
+            
+        <!-- 不蒜子统计 -->
+        <span id="busuanzi_container_site_pv">
+                本站总访问量<span id="busuanzi_value_site_pv"></span>次        </span>
+        <span id="busuanzi_container_site_uv" style='display:none'>
+                |本站访客数<span id="busuanzi_value_site_uv"></span>人        </span>
+        <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+		
+    </div>
+    
+  </div>
+</footer>
+
+<script language=javascript>
+    function siteTime() {
+        window.setTimeout("siteTime()", 1000);
+        var seconds = 1000;
+        var minutes = seconds * 60;
+        var hours = minutes * 60;
+        var days = hours * 24;
+        var years = days * 365;
+        var today = new Date();
+        var todayYear = today.getFullYear();
+        var todayMonth = today.getMonth() + 1;
+        var todayDate = today.getDate();
+        var todayHour = today.getHours();
+        var todayMinute = today.getMinutes();
+        var todaySecond = today.getSeconds();
+        /* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+        year - 作为date对象的年份，为4位年份值
+        month - 0-11之间的整数，做为date对象的月份
+        day - 1-31之间的整数，做为date对象的天数
+        hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+        minutes - 0-59之间的整数，做为date对象的分钟数
+        seconds - 0-59之间的整数，做为date对象的秒数
+        microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+        var t1 = Date.UTC(2020, 10, 11, 00, 00, 00); //北京时间2018-2-13 00:00:00
+        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+        var diff = t2 - t1;
+        var diffYears = Math.floor(diff / years);
+        var diffDays = Math.floor((diff / days) - diffYears * 365);
+        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes);
+        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds);
+        document.getElementById("sitetime").innerHTML = "本站已运行 " +diffYears+" 年 "+diffDays + " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+    }/*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
+    siteTime();
+</script>
+    </div>
+    
+
+<script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="//apps.bdimg.com/libs/wow/0.1.6/wow.min.js"></script>
+<script>
+new WOW().init();
+</script>   
+
+
+  
+<link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
+
+  
+<script src="/plugin/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+  
+<link rel="stylesheet" href="/plugin/galmenu/GalMenu.css">
+
+  
+<script src="/plugin/galmenu/GalMenu.js"></script>
+
+  <div class="GalMenu GalDropDown">
+      <div class="circle" id="gal">
+        <div class="ring">
+          
+            <a href="/" title="" class="menuItem">首页</a>
+          
+            <a href="/tags" title="" class="menuItem">标签</a>
+          
+            <a href="/categories" title="" class="menuItem">分类</a>
+          
+            <a href="/archives" title="" class="menuItem">归档</a>
+          
+            <a href="/xxxxxxxxx" title="" class="menuItem">xxx</a>
+          
+            <a href="/xxxxxxx" title="" class="menuItem">xxxx</a>
+          
+        </div>
+        
+          <audio id="audio" src="#"></audio>
+        
+      </div> 
+</div>
+<div id="overlay" style="opacity: 1; cursor: pointer;"></div>
+  <script type="text/javascript">var items = document.querySelectorAll('.menuItem');
+    for (var i = 0,
+    l = items.length; i < l; i++) {
+      items[i].style.left = (50 - 35 * Math.cos( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%";
+      items[i].style.top = (50 + 35 * Math.sin( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%"
+    }</script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('body').GalMenu({
+      'menu': 'GalDropDown'
+    })
+  });
+</script>
+
+  <section class="hidden-xs"> 
+  <ul class="cb-slideshow"> 
+    <li><span>苟利</span></li> 
+    <li><span>国家</span></li> 
+    <li><span>生死以</span></li> 
+    <li><span>岂能</span></li> 
+    <li><span>祸福</span></li> 
+    <li><span>趋避之</span></li> 
+  </ul>
+</section>
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("3BofTxt7eh7t7IFhEptSRiW7-gzGzoHsz", "6r3fg4uUNzOTwCmMezUce8wA");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.article-title').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+
+
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":250,"height":500},"mobile":{"show":false},"log":false});</script></body>
+</html>
